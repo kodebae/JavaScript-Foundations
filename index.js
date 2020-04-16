@@ -71,13 +71,18 @@ function mortgageCalculator2(P, I, N) {
     let principal = P;
     let interestRate = I;
     let years = N;
+    const monthlyInterestRate = (interestRate / 12);
+    const periods = (years * 12);
+    const numerator = monthlyInterestRate * (Math.pow((1 + monthlyInterestRate), periods));
 
+    const denominator = ((Math.pow((1 + monthlyInterestRate), periods)) - 1);
+
+    const monthlyRate = principal * (numerator / denominator);
 
     console.log(name + ', your monthly rate is ' + monthlyRate);
 
-
 }
-mortgageCalculator2(200000, 0.05, 20);
+mortgageCalculator2(200000, 0.05, 30);
 
 
 // 🏡 Task 5: Conditionals
@@ -86,18 +91,27 @@ mortgageCalculator2(200000, 0.05, 20);
 Then, add control flow within your function such that IF creditScore is above 740, interest rate drops by 0.5%, if credit score is below 660, interest rate increases by 0.5% and if credit score is anywhere between 660 and 740 interest rate doesn't change.
 */
 function mortgageCalculator3(P, I, N, score) {
+    let principal = P;
     let interestRate = I;
-
-    if (score > 740 && score < 800) {
+    let years = N;
+    if (score > 740) {
         interestRate = (interestRate - .005);
-    }
-
-    if (score < 660) {
+    } else if (score < 660) {
         interestRate = (interestRate + .005);
     }
-    console.log(interestRate);
+    const monthlyInterestRate = (interestRate / 12);
+    const periods = (years * 12);
+    const numerator = monthlyInterestRate * (Math.pow((1 + monthlyInterestRate), periods));
+
+    const denominator = ((Math.pow((1 + monthlyInterestRate), periods)) - 1);
+
+    const monthlyRate = principal * (numerator / denominator);
+
+    console.log(name + ', your monthly rate is ' + monthlyRate);
 
 }
+
+
 
 mortgageCalculator3(2000000, 0.05, 30, 750);
 
