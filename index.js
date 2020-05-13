@@ -113,7 +113,7 @@ function mortgageCalculator3(P, I, N, score) {
 
 
 
-mortgageCalculator3(2000000, 0.05, 30, 750);
+mortgageCalculator3(200000, 0.05, 30, 750);
 
 
 // 🏡 Task 6: Loops
